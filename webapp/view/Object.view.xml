@@ -2,28 +2,101 @@
     controllerName="bpmaint06.controller.Object"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:semantic="sap.f.semantic">
+    xmlns:semantic="sap.f.semantic"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
 
     <semantic:SemanticPage
         id="page"
         headerPinnable="false"
         toggleHeaderOnTitleClick="false"
         busy="{objectView>/busy}"
-        busyIndicatorDelay="{objectView>/delay}">
+        busyIndicatorDelay="{objectView>/delay}"
+        showFooter="{objectView>/edit}">
 
-        <semantic:titleHeading>
-            <Title
-                text="{PartnerId}"
-                level="H2"/>
-        </semantic:titleHeading>
+        <semantic:content>
+         <form:Form id="formBPDetail" width="100%" editable="{objectView>/edit}">
+                <form:title>
+                    <core:Title text="{i18n>txtBPDetail}" level="Auto"/>
+                </form:title>
+                <form:layout>
+                    <form:ResponsiveGridLayout/>
+                </form:layout>
+                <form:formContainers>
+                    <form:FormContainer title="{i18n>txtCentralData}">
+                        <form:FormElement label="{i18n>txtPartnerId}">
+                            <form:fields> 
+                                <Label text="{PartnerId}" />
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtPartnerType}">
+                            <form:fields> 
+                                <Input id="txtPartnerType" value="{PartnerType}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtPartnerName}">
+                            <form:fields> 
+                                <Input id="txtPartnerName1" value="{PartnerName1}" editable="{objectView>/edit}"/> 
+                                <Input id="txtPartnerName2" value="{PartnerName2}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtSearchTerm}">
+                            <form:fields> 
+                                <Input id="txtSearchTerm1" value="{SearchTerm1}" editable="{objectView>/edit}"/>  
+                                <Input id="txtSearchTerm2" value="{SearchTerm2}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                    </form:FormContainer>
+                    <form:FormContainer title="{i18n>txtAddressData}">
+                        <form:FormElement label="{i18n>txtStreet}">
+                            <form:fields> 
+                                <Input id="txtStreet" value="{Street}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtHouseNumber}">
+                            <form:fields> 
+                                 <Input id="txtHouseNumber" value="{HouseNumber}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtDistrict}">
+                            <form:fields> 
+                                <Input id="txtDistrict" value="{District}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtCity}">
+                            <form:fields> 
+                                <Input id="txtCity" value="{City}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtRegion}">
+                            <form:fields> 
+                                <Input id="txtRegion" value="{Region}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtZipCode}">
+                            <form:fields> 
+                                <Input id="txtZipCode" value="{ZipCode}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                        <form:FormElement label="{i18n>txtCountry}">
+                            <form:fields> 
+                                <Input id="txtCountry" value="{Country}" editable="{objectView>/edit}"/>
+                            </form:fields>
+                        </form:FormElement>
+                    </form:FormContainer>
+                </form:formContainers>
+            </form:Form>
+		</semantic:content>
 
-        <semantic:headerContent>
-            <ObjectNumber />
-        </semantic:headerContent>
+        <semantic:titleMainAction>
+			<semantic:TitleMainAction text="{i18n>btnEdit}" press="onEditPress" />
+		</semantic:titleMainAction>
 
-        <semantic:sendEmailAction>
-            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
-        </semantic:sendEmailAction>
+        <!-- Custom Footer Content-->
+		<semantic:footerCustomActions>
+			<Button text="{i18n>btnSave}" press="onSavePress" />
+			<Button text="{i18n>btnCancel}" press="onCancelPress" />
+		</semantic:footerCustomActions>
 
     </semantic:SemanticPage>
 

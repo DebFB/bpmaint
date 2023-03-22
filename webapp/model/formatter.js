@@ -14,6 +14,17 @@ sap.ui.define([], function () {
                 return "";
             }
             return parseFloat(sValue).toFixed(2);
+        },
+
+        formatPartnerType: function (sPartnerType) { 
+            switch (sPartnerType) { 
+                case "1": 
+                    return this.getText("txtOrganization"); 
+                case "2": 
+                    return this.getText("txtPerson"); 
+                default: 
+                    return ""; 
+            } 
         }
 
     };

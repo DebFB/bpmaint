@@ -59,7 +59,18 @@ sap.ui.define([
                 oViewModel.getProperty("/shareSendEmailSubject"),
                 oViewModel.getProperty("/shareSendEmailMessage")
             );
-        }
+        },
+
+        getText: function (sTextId, aArgs) { 
+            var oView = this.getView(); 
+            var oModel = oView.getModel("i18n");
+
+            if (!oModel) { 
+                oModel = sap.ui.model.resource.ResourceModel({ bundleName: "bpmaint.bpmaint.i18n.i18n" }); 
+                oView.setModel(oModel, "i18n"); 
+            }
+            return oModel.getResourceBundle().getText(sTextId, aArgs); 
+        },
     });
 
 });

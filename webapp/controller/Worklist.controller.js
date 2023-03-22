@@ -114,6 +114,12 @@ sap.ui.define([
             oTable.getBinding("items").refresh();
         },
 
+        onCreatePress: function(oEvent){ 
+            alert("Hellooo Everybody"); 
+            console.log(oEvent);
+            console.log("teste");
+        },
+
         /* =========================================================== */
         /* internal methods                                            */
         /* =========================================================== */

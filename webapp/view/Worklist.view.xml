@@ -49,15 +49,22 @@
                                     priority="NeverOverflow"/>
                             </layoutData>
                         </SearchField>
+                         <Button id="buttonCreate" icon="sap-icon://add" text="{i18n>btnCreate}" type="Default" press="onCreatePress" />
                     </OverflowToolbar>
                 </headerToolbar>
 
                 <columns>
-                    <Column id="nameColumn">
-                        <Text text="{i18n>tableNameColumnTitle}" id="nameColumnTitle"/>
+                     <Column> 
+                        <Text text="{i18n>txtPartner}"/> 
                     </Column>
-                    <Column id="unitNumberColumn" hAlign="End">
-                        <Text text="{i18n>tableUnitNumberColumnTitle}" id="unitNumberColumnTitle"/>
+                    <Column> 
+                        <Text text="{i18n>txtPartnerType}"/> 
+                    </Column> 
+                    <Column> 
+                        <Text text="{i18n>txtRegion}"/> 
+                    </Column> 
+                    <Column> 
+                        <Text text="{i18n>txtCountry}"/> 
                     </Column>
                 </columns>
 
@@ -66,9 +73,10 @@
                         type="Navigation"
                         press=".onPress">
                         <cells>
-                            <ObjectIdentifier
-                                title="{PartnerId}"/>
-                            <ObjectNumber />
+                            <ObjectIdentifier title="{PartnerId}" text="{PartnerName1} {PartnerName2}"/> 
+                            <Text text="{path: 'PartnerType', formatter: '.formatter.formatPartnerType'}" /> 
+                            <Text text="{Region}"/> 
+                            <Text text="{Country}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
